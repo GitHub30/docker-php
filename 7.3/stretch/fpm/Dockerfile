@@ -1,4 +1,4 @@
-FROM php:7.2-fpm
+FROM php:7.3-fpm
 
 # set environment
 ENV COMPOSER_HOME=/root/composer \
@@ -10,7 +10,7 @@ RUN curl -sL http://www.debian.or.jp/using/apt/sources.list.http.ftp.jp.debian.o
     apt-get update
 
 # package install
-RUN apt-get install -y zlib1g-dev curl libcurl4 libcurl4-gnutls-dev
+RUN apt-get install -y zlib1g-dev curl libcurl4 libcurl4-gnutls-dev libzip-dev
 RUN docker-php-ext-install pdo pdo_mysql zip curl mbstring
 
 # Install Composer
